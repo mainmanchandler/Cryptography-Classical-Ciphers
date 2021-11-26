@@ -1,0 +1,410 @@
+----------------------------------------
+Start of Columnar Transposition Basic Testing
+
+Creating a columnar transposition cipher object using default constructor:
+Columnar Transposition Cipher:
+key = abcd, pad = q
+
+Testing key_order:
+Key order for  = []
+Key order for r = [0]
+Key order for ? = [0]
+Key order for RAINY? = [1, 2, 3, 0, 4, 5]
+Key order for dad = [1, 0]
+Key order for face = [1, 2, 3, 0]
+Key order for Face = [0, 1, 2, 3]
+Key order for apple = [0, 3, 2, 1]
+Key order for good day = [3, 4, 2, 0, 1, 5]
+Key order for German = [0, 4, 1, 3, 5, 2]
+
+Testing set_key and get_key:
+set_key(Nova Scotia) = True, get_key = Nova Scotia
+set_key(Ontario) = True, get_key = Ontario
+set_key(123) = False, get_key = abcd
+set_key(c) = False, get_key = abcd
+
+Testing set_pad and get_pad:
+set_pad(Q) = True, get_pad = Q
+set_pad(x) = True, get_pad = x
+set_pad(xx) = False, get_pad = q
+set_pad(3) = False, get_pad = q
+
+End of Columnar Transposition Basic Testing
+----------------------------------------
+
+----------------------------------------
+Start of Columnar Transposition Testing
+
+Testing Encryption/Decryption:
+key = German, pad = q
+plaintext  = DEFENDEASTERNWALLOFTHECASTLE
+ciphertext = DENFSNELCqEAWTTETLEEDROAqFSAHL
+plaintext2 = DEFENDEASTERNWALLOFTHECASTLE
+
+key = Truth Seeker, pad = .
+plaintext  = The story was very pretty and interesting, especially at the point where the rivals suddenly
+ciphertext = oyd iierl yrp inap es.Tat eey nedyrnglots. trntchealw et ,li hu.hs trsat rds easeth vnevyeptwie
+plaintext2 = The story was very pretty and interesting, especially at the point where the rivals suddenly
+
+key = cryptology, pad = x
+plaintext  = The story was very pretty and interesting, especially at the point where the rivals suddenly
+ciphertext = Twr iictw rdy pdte tteuxr yns panhsxoraesy itsysvte,l pr anh aenni hhidt eyr eloell esttgaeeve
+plaintext2 = The story was very pretty and interesting, especially at the point where the rivals suddenly
+
+End of Columnar Transposition Testing
+----------------------------------------
+
+----------------------------------------
+Start of Polybius Cipher Basics Testing
+
+Creating polybius using default constructor:
+
+Testing polybius.valaid_key:
+a             --> False
+['a', 5]      --> False
+('a',)        --> False
+('a', 5, 'b') --> False
+(5, 10)       --> False
+('a', 'b')    --> False
+('ab', 5)     --> False
+(' ', 1)      --> False
+(' ', 10)     --> False
+('|', 2)      --> False
+('w', 3)      --> False
+('s', 4)      --> False
+('a', 5)      --> True
+('w', 2)      --> True
+('v', 3)      --> True
+('c', 4)      --> True
+('3', 8)      --> True
+(' ', 9)      --> True
+
+Testing set_key and get_key:
+Setting Polybius key to ['A', 4]
+	Success = False
+	get_key = ('a', 5)
+Setting Polybius key to ('B', 6)
+	Success = True
+	get_key = ('B', 6)
+Setting Polybius key to (' ', 9)
+	Success = True
+	get_key = (' ', 9)
+Setting Polybius key to ('s', 4)
+	Success = False
+	get_key = (' ', 9)
+
+Testing get_square:
+Set to key ('D', 2)
+get_square(list): [['D', 'E'], ['F', 'G']]
+get_square(string):
+D  E  
+F  G  
+
+Set to key ('m', 3)
+get_square(list): [['m', 'n', 'o'], ['p', 'q', 'r'], ['s', 't', 'u']]
+get_square(string):
+m  n  o  
+p  q  r  
+s  t  u  
+
+Set to key ('9', 4)
+get_square(list): [['9', ':', ';', '<'], ['=', '>', '?', '@'], ['A', 'B', 'C', 'D'], ['E', 'F', 'G', 'H']]
+get_square(string):
+9  :  ;  <  
+=  >  ?  @  
+A  B  C  D  
+E  F  G  H  
+
+Set to key ('a', 5)
+get_square(list): [['a', 'b', 'c', 'd', 'e'], ['f', 'g', 'h', 'i', 'j'], ['k', 'l', 'm', 'n', 'o'], ['p', 'q', 'r', 's', 't'], ['u', 'v', 'w', 'x', 'y']]
+get_square(string):
+a  b  c  d  e  
+f  g  h  i  j  
+k  l  m  n  o  
+p  q  r  s  t  
+u  v  w  x  y  
+
+Set to key ('B', 6)
+get_square(list): [['B', 'C', 'D', 'E', 'F', 'G'], ['H', 'I', 'J', 'K', 'L', 'M'], ['N', 'O', 'P', 'Q', 'R', 'S'], ['T', 'U', 'V', 'W', 'X', 'Y'], ['Z', '[', '\\', ']', '^', '_'], ['`', 'a', 'b', 'c', 'd', 'e']]
+get_square(string):
+B  C  D  E  F  G  
+H  I  J  K  L  M  
+N  O  P  Q  R  S  
+T  U  V  W  X  Y  
+Z  [  \  ]  ^  _  
+`  a  b  c  d  e  
+
+Error(Polybius.get_square): undefined mode
+
+Testing __str__:
+Polybius Cipher:
+key = ('6', 5)
+6  7  8  9  :  
+;  <  =  >  ?  
+@  A  B  C  D  
+E  F  G  H  I  
+J  K  L  M  N  
+
+End of Polybius Cipher Basics Testing
+----------------------------------------
+
+----------------------------------------
+Start of Polybius Cipher Encoding Testing
+
+Polybius Cipher:
+key = ('a', 5)
+a  b  c  d  e  
+f  g  h  i  j  
+k  l  m  n  o  
+p  q  r  s  t  
+u  v  w  x  y  
+
+Testing encode:
+encode(a) = 11
+encode(g) = 22
+encode(n) = 34
+encode(w) = 53
+encode(z) = 
+Error(Polybius.encode): invalid input
+encode(abc) = 
+
+Testing decode: 
+decode(11) = a
+decode(31) = k
+decode(42) = q
+decode(53) = w
+decode(16) = 
+decode(02) = 
+Error(Polybius.decode): invalid input
+decode(ab) = 
+
+End of Polybius Cipher Encoding Testing
+----------------------------------------
+
+----------------------------------------
+Start of Polybius Cipher Testing
+
+Polybius Cipher:
+key = ('A', 5)
+A  B  C  D  E  
+F  G  H  I  J  
+K  L  M  N  O  
+P  Q  R  S  T  
+U  V  W  X  Y  
+plaintext  = POLYBIUS
+ciphertext = 4135325512245144
+plaintext2 = POLYBIUS
+
+Polybius Cipher:
+key = ('D', 5)
+D  E  F  G  H  
+I  J  K  L  M  
+N  O  P  Q  R  
+S  T  U  V  W  
+X  Y  Z  [  \  
+plaintext  = POLYBIUS Cipher
+ciphertext = 33322452B214341 Cipher
+plaintext2 = POLYBIUS Cipher
+
+Polybius Cipher:
+key = ('R', 4)
+R  S  T  U  
+V  W  X  Y  
+Z  [  \  ]  
+^  _  `  a  
+plaintext  = POLYBIUS1
+ciphertext = POL24BI14121
+plaintext2 = POLYBIUS1
+
+Polybius Cipher:
+key = ('a', 5)
+a  b  c  d  e  
+f  g  h  i  j  
+k  l  m  n  o  
+p  q  r  s  t  
+u  v  w  x  y  
+plaintext  = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that profound secret and mystery to eve
+ciphertext = A 533534141543215132 21111345 4535 43152132151345 51413534[13], 45231145 1552154355 2351331134 1343151145514315 2444 1335344445244
+plaintext2 = A wonderful fact to reflect upon[c], that every human creature is constituted [5] to be that profound secret and mystery to every 
+
+Polybius Cipher:
+key = ('D', 6)
+D  E  F  G  H  I  
+J  K  L  M  N  O  
+P  Q  R  S  T  U  
+V  W  X  Y  Z  [  
+\  ]  ^  _  `  a  
+b  c  d  e  f  g  
+plaintext  = Python features a dynamic type system and automatic memory management.
+It supports multiple programming paradigms, 
+including obje
+ciphertext = 31ython 656456tur64s 56 63yn56mi62 typ64 syst64m 56n63 56utom56ti62 m64mory m56n566664m64nt.
+16t supports multipl64 pro66r56mmin66
+plaintext2 = Python features a dynamic type system and automatic memory management.
+It supports multiple programming paradigms, 
+including obje
+
+Polybius Cipher:
+key = ('A', 7)
+A  B  C  D  E  F  G  
+H  I  J  K  L  M  N  
+O  P  Q  R  S  T  U  
+V  W  X  Y  Z  [  \  
+]  ^  _  `  a  b  c  
+d  e  f  g  h  i  j  
+k  l  m  n  o  p  q  
+plaintext  = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that profound secret and mystery to eve
+ciphertext = 11 w75746162r63u72 635557t t75 r6263726257t u767574461351, t6555t 62v62ry 65u735574 57r6255tur62 66s 577574st66tut6261 4629551 t75
+plaintext2 = A wonderful fact to reflect upon[C], that every human creature is constituted [a1 to be that profound secret and mystery to every 
+
+End of Polybius Cipher Testing
+----------------------------------------
+
+----------------------------------------
+Start of Polybius Cipher Cryptanalysis Testing
+
+Cryptanalysis of ciphertext1.txt
+key = ('b', 5)
+plaintext = A wonderful fact to reflect upon[d], that every human creature is constituted [5] to be that profoun
+
+Cryptanalysis of ciphertext2.txt
+key = ('A', 6)
+plaintext = A wonderful fact to reflect upon[C], that every human creature is constituted []5 to be that profoun
+
+Cryptanalysis of ciphertext3.txt
+key = ('#', 7)
+plaintext = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that prof
+
+Cryptanalysis of ciphertext4.txt
+key = ('D', 7)
+plaintext = A wonderful fact to reflect upon[F], that every human creature is constituted [c5 to be that profoun
+
+Cryptanalysis of ciphertext5.txt
+key = ('$', 8)
+plaintext = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that prof
+
+Cryptanalysis of ciphertext6.txt
+key = ('G', 4)
+plaintext = A wONdeRfUL facT TO RefLecT UPON[I], THaT eVeRy HUMaN cReaTURe IS cONSTITUTed [5] TO be THaT PROfOUN
+
+Cryptanalysis of ciphertext7.txt
+Polybius.cryptanalyze: cryptanalysis failed
+key = 
+plaintext = 
+
+End of Polybius Cipher Cryptanlaysis Testing
+----------------------------------------
+
+----------------------------------------
+Start of simple_substitution Basics Testing
+
+------ Creating polybius using default constructor:
+Simple Substitution Cipher:
+key = frozen
+abcdefghijklmnopqrstuvwxyz
+frozenabcdghijklmpqstuvwxy
+
+------ Testing Simple_Substitution.valaid_key:
+abcdefghijklmnopqrstuvwxyz --> False
+['abc', 'abcdefghijklmnopqrstuvwxyz'] --> False
+('ABCDEFGHIJKLMNOPQRSTUVWXYZ',) --> False
+('abc', 'abcdefghij', 'ABCDE') --> False
+('', 'abcdefghijklmnopqrstuvwxyz') --> False
+('a', 'abcdefghijklmnopqrstuvwxyz') --> False
+('a$', 'abcdefghijklmnopqrstuvwxyz') --> False
+('ab', 'a') --> False
+('ab', 'aaa') --> False
+('aba', 'bcd') --> False
+('substitution', 'abcdefgh') --> False
+('ba', 'ab') --> True
+('contribution', 'abcdefghij') --> True
+('An', 'ABCDEFGHIJKLMNOPQR') --> True
+('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') --> True
+
+------ Testing set_key, get_key, get_table and __str__:
+Setting key to ('contribution', 'abcdefghij')
+Success = True
+get_key = ('cib', 'abcdefghij')
+get_table = ['abcdefghij', 'cibadefghj']
+Simple Substitution Cipher:
+key = cib
+abcdefghij
+cibadefghj
+
+Setting key to ('An', 'ABCDEFGHIJKLMNOPQR')
+Success = True
+get_key = ('an', 'abcdefghijklmnopqr')
+get_table = ['abcdefghijklmnopqr', 'anbcdefghijklmopqr']
+Simple Substitution Cipher:
+key = an
+abcdefghijklmnopqr
+anbcdefghijklmopqr
+
+Setting key to ('password', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+Success = True
+get_key = ('pasword', 'abcdefghijklmnopqrstuvwxyz')
+get_table = ['abcdefghijklmnopqrstuvwxyz', 'paswordbcefghijklmnqtuvxyz']
+Simple Substitution Cipher:
+key = pasword
+abcdefghijklmnopqrstuvwxyz
+paswordbcefghijklmnqtuvxyz
+
+Setting key to ('Substitution', 'Simple Substitution Cipher')
+Success = True
+get_key = ('subtion', 'simple ubtonchr')
+get_table = ['simple ubtonchr', 'subtionmple chr']
+Simple Substitution Cipher:
+key = subtion
+simple ubtonchr
+subtionmple chr
+
+Setting key to ('9$perday', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')
+Success = True
+get_key = ('9perday', 'abcdefghijklmnopqrstuvwxyz0123456789')
+get_table = ['abcdefghijklmnopqrstuvwxyz0123456789', '9perdaybcfghijklmnoqstuvwxz012345678']
+Simple Substitution Cipher:
+key = 9perday
+abcdefghijklmnopqrstuvwxyz0123456789
+9perdaybcfghijklmnoqstuvwxz012345678
+
+End of simple_substitution Cipher Basics Testing
+----------------------------------------
+
+----------------------------------------
+Start of simple_substitution Cipher Testing
+
+Simple Substitution Cipher:
+key = oxygen
+abcdefghijklmnopqrstuvwxyz
+oxygenabcdfhijklmpqrstuvwz
+plaintext  = Create strong passwords that are difficult to guess!
+ciphertext = Ypeore qrpkja loqqukpgq rbor ope gcnncyshr rk aseqq!
+plaintext2 = Create strong passwords that are difficult to guess!
+
+Simple Substitution Cipher:
+key = cobalt
+abcdefghijklmnopqrstuvwxyz
+cobaltdefghijkmnpqrsuvwxyz
+plaintext  = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that profound secret and mystery to eve
+ciphertext = C wmkalqtui tcbs sm qltilbs unmk[13], secs lvlqy eujck bqlcsuql fr bmkrsfsusla [295] sm ol secs nqmtmuka rlbqls cka jyrslqy sm lvl
+plaintext2 = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that profound secret and mystery to eve
+
+Simple Substitution Cipher:
+key = potasium 2lfde
+abcdefghij lmnopqrstuvwxyzk0123456789
+potasium 2lfdebcghjnqrvwxyzk013456789
+plaintext  = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that profound secret and mystery to eve
+ciphertext = Plvbeashiqfliptnlnblhsifstnlqcbe[03],lnmpnlsrshxlmqdpelthspnqhsl jltbejn nqnsal[195]lnbloslnmpnlchbibqealjsthsnlpealdxjnshxlnblsrs
+plaintext2 = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that profound secret and mystery to eve
+
+Simple Substitution Cipher:
+key = feso4:irn()ulat
+abcdefghijklmnopqrst vwxyzu0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+feso4:irn()ulatbcdghjkmpq vwxyz012356789!"#$%&'*+,-./;<=>?@[\]^_`{|}~
+plaintext  = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that profound secret and mystery to eve
+ciphertext = Fjmtao4d:vuj:fshjhtjd4:u4shjvbta[xz]+jhrfhj4k4dqjrvlfajsd4fhvd4jngjstaghnhvh4oj[y61]jhtje4jhrfhjbdt:tvaojg4sd4hjfaojlqgh4dqjhtj4k4
+plaintext2 = A wonderful fact to reflect upon[13], that every human creature is constituted [295] to be that profound secret and mystery to eve
+
+End of Simple Substitution Cipher Testing
+----------------------------------------
+

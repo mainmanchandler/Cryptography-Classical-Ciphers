@@ -1,0 +1,591 @@
+----------------------------------------
+Start of index_of_coincidence Testing
+
+IOC(plaintext1.txt) = 	0.0631
+IOC(plaintext2.txt) = 	0.0648
+IOC(ciphertext1.txt) = 	0.0457
+IOC(random_text.txt) = 	0.0385
+IOC(lorem ipsum.txt) = 	0.0725
+IOC(empty_file.txt) = 	0.0000
+
+End of index_of_coincidence Testing
+----------------------------------------
+
+----------------------------------------
+Start of Chi Squared Testing
+
+chi_squared(plaintext1.txt) = 	33.096
+chi_squared(plaintext2.txt) = 	19.567
+chi_squared(ciphertext1.txt) = 	985.548
+chi_squared(random_text.txt) = 	46329.144
+chi_squared(lorem ipsum.txt) = 	2909.092
+chi_squared(empty_file.txt) = 	-1.000
+
+End of Chi Squared Testing
+----------------------------------------
+
+----------------------------------------
+Start of friedman Testing
+
+friedman(ciphertext1.txt) = [4, 3]
+friedman(ciphertext2.txt) = [6, 7]
+friedman(ciphertext3.txt) = [7, 8]
+friedman(ciphertext4.txt) = [10, 9]
+friedman(ciphertext5.txt) = [7, 6]
+
+End of friedman Testing
+----------------------------------------
+
+----------------------------------------
+Start of cipher shifting Testing
+
+cipher_shifting(ciphertext1.txt) = [3, 5]
+cipher_shifting(ciphertext2.txt) = [18, 3]
+cipher_shifting(ciphertext3.txt) = [1, 7]
+cipher_shifting(ciphertext4.txt) = [20, 10]
+cipher_shifting(ciphertext5.txt) = [13, 20]
+
+End of cipher_shifting Testing
+----------------------------------------
+
+----------------------------------------
+Start of Shift Basic Testing
+
+Creating a Shift cipher object using default constructor:
+Shift Cipher:
+key = (3, 26, 51)
+base = abcdefghijklmnopqrstuvwxyz
+sub  = defghijklmnopqrstuvwxyzabc
+
+Testing Shift.valid_key:
+[4, 6, 29] --> False
+(3, 15) --> False
+(3, '15', 24) --> False
+(5.0, 15, 24) --> False
+(-5, -4, 23) --> False
+(-5, 4, -23) --> False
+(11, 23, 4) --> False
+(9, 2, 96) --> False
+(13, 35, 95) --> True
+(-6, 0, 19) --> True
+
+Testing basic functions:
+shift.set_key((15, 35, 62)) = True
+shift.get_key() = (15, 35, 62)
+shift.get_base() = jklmnopqrstuvwxyz0123456789!
+Shift Cipher:
+key = (15, 35, 62)
+base = jklmnopqrstuvwxyz0123456789!
+sub  = yz0123456789!jklmnopqrstuvwx
+
+shift.set_key((-15, 12, 88)) = True
+shift.get_key() = (62, 12, 88)
+shift.get_base() = MNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_
+Shift Cipher:
+key = (62, 12, 88)
+base = MNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_
+sub  = -./:;<=>?@[\]^_MNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,
+
+shift.set_key((-16, 44, 13)) = False
+shift.get_key() = (3, 26, 51)
+shift.get_base() = abcdefghijklmnopqrstuvwxyz
+Shift Cipher:
+key = (3, 26, 51)
+base = abcdefghijklmnopqrstuvwxyz
+sub  = defghijklmnopqrstuvwxyzabc
+
+End of Shift Basic Testing
+----------------------------------------
+
+----------------------------------------
+Start of Shift Cipher Testing
+
+Shift Cipher:
+key = (14, 2, 43)
+base = CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqr
+sub  = QRSTUVWXYZabcdefghijklmnopqrCDEFGHIJKLMNOP
+plaintext = Daring burglaries by armed men, and highway robberies, took place in the capital
+ciphertext= RoPGLE puPEJoPGCs py oPKCr KCL, oLr FGEFwoy PMppCPGCs, tMMI NJoqC GL tFC qoNGtoJ
+plaintext2= Daring burglaries by armed men, and highway robberies, took place in the capital
+Validated
+
+Shift Cipher:
+key = (62, 12, 88)
+base = MNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_
+sub  = -./:;<=>?@[\]^_MNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,
+plaintext = Daring burglaries by armed men, and highway robberies, took place in the capital
+ciphertext= D_cTYR MfcRW_cTPd Mj _cXPO XPY6 _YO STRSh_j cZMMPcTPd6 eZZV aW_NP TY eSP N_aTe_W
+plaintext2= Daring burglaries by armed men, and highway robberies, took place in the capital
+Validated
+
+Shift Cipher:
+key = (6, 30, 95)
+base = efghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ 
+sub  = klmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ efghij
+plaintext = Daring burglaries by armed men, and highway robberies, took place in the capital
+ciphertext= Daxotmjb0xmraxokyjb4jaxskdjskt<jatdjnomn2a4jxubbkxoky<jzuuqjvrackjotjznkjcavozar
+plaintext2= Daring burglaries by armed men, and highway robberies, took place in the capital
+Validated
+
+End of Shift Cipher Testing
+----------------------------------------
+
+----------------------------------------
+Start of Shift Cryptanalysis Testing
+
+Cryptanlaysis of ciphertext6.txt
+key = (8, 26, 56)
+plaintext = In England, there was scarcely an amount of order and protection to justify much national boasting.
+
+Cryptanlaysis of ciphertext6.txt
+key = (8, 26, 56)
+plaintext = In England, there was scarcely an amount of order and protection to justify much national boasting.
+
+Cryptanlaysis of ciphertext6.txt
+key = (8, 26, 56)
+plaintext = In England, there was scarcely an amount of order and protection to justify much national boasting.
+
+Cryptanlaysis of ciphertext7.txt
+key = (5, 24, 45)
+plaintext = In England, there was scarcely an amount of order and protection to justify much national boasting.
+
+End of Shift Cryptanalysis Cipher Testing
+----------------------------------------
+
+----------------------------------------
+Start of vigenere Basic Testing
+
+Creating a Vigenere cipher object using default constructor:
+Vigenere Cipher:
+key = k
+
+Testing vigenere.valid_key:
+r --> True
+B --> True
+$ --> False
+ab --> True
+Cd --> True
+a$a --> True
+?_! --> False
+
+Testing get_base:
+abcdefghijklmnopqrstuvwxyz
+bcdefghijklmnopqrstuvwxyza
+cdefghijklmnopqrstuvwxyzab
+defghijklmnopqrstuvwxyzabc
+efghijklmnopqrstuvwxyzabcd
+fghijklmnopqrstuvwxyzabcde
+ghijklmnopqrstuvwxyzabcdef
+hijklmnopqrstuvwxyzabcdefg
+ijklmnopqrstuvwxyzabcdefgh
+jklmnopqrstuvwxyzabcdefghi
+klmnopqrstuvwxyzabcdefghij
+lmnopqrstuvwxyzabcdefghijk
+mnopqrstuvwxyzabcdefghijkl
+nopqrstuvwxyzabcdefghijklm
+opqrstuvwxyzabcdefghijklmn
+pqrstuvwxyzabcdefghijklmno
+qrstuvwxyzabcdefghijklmnop
+rstuvwxyzabcdefghijklmnopq
+stuvwxyzabcdefghijklmnopqr
+tuvwxyzabcdefghijklmnopqrs
+uvwxyzabcdefghijklmnopqrst
+vwxyzabcdefghijklmnopqrstu
+wxyzabcdefghijklmnopqrstuv
+xyzabcdefghijklmnopqrstuvw
+yzabcdefghijklmnopqrstuvwx
+zabcdefghijklmnopqrstuvwxy
+
+Testing set_key, get_key, __str__:
+vigenere.set_key(Germany) = True
+vigenere.get_key() = germany
+Vigenere Cipher:
+key = germany
+
+vigenere.set_key(BANGLADESH) = True
+vigenere.get_key() = bangladesh
+Vigenere Cipher:
+key = bangladesh
+
+vigenere.set_key(Central Africa) = True
+vigenere.get_key() = centralafrica
+Vigenere Cipher:
+key = centralafrica
+
+vigenere.set_key(3dollars50cents) = True
+vigenere.get_key() = dollarscents
+Vigenere Cipher:
+key = dollarscents
+
+vigenere.set_key($3.50) = False
+vigenere.get_key() = k
+Vigenere Cipher:
+key = k
+
+vigenere.set_key(5p5) = True
+vigenere.get_key() = p
+Vigenere Cipher:
+key = p
+
+End of vigenere Basic Testing
+----------------------------------------
+
+----------------------------------------
+Start of vigenere Cipher Testing
+
+Vigenere Cipher:
+key = germany
+plaintext = res the use of a one-time pre-shared key the same size as, or longer than, the m
+ciphertext= def rni lee bd g seq-tvkk tiq-suyxiu wel rni jmmr qodv ms, bp rsesee rnee, fhr k
+plaintext2= res the use of a one-time pre-shared key the same size as, or longer than, the m
+Validated
+
+Vigenere Cipher:
+key = bangladesh
+plaintext = res the use of a one-time pre-shared key the same size as, or longer than, the m
+ciphertext= sef zse xww vg a btp-tlqw wse-fnlrhh clz tuk dapi kpae ny, zr osfnfr gnln, wlw t
+plaintext2= res the use of a one-time pre-shared key the same size as, or longer than, the m
+Validated
+
+Vigenere Cipher:
+key = centralafrica
+plaintext = res the use of a one-time pre-shared key the same size as, or longer than, the m
+ciphertext= exj tse zjm qf c sax-kixe uim-uhcvrw bej tmv acmg wvsv ad, ow cwpggv garn, ehj d
+plaintext2= res the use of a one-time pre-shared key the same size as, or longer than, the m
+Validated
+
+End of vigenere Cipher Testing
+----------------------------------------
+
+----------------------------------------
+Start of Vigenere key length Cryptanalysis Testing
+
+------------- Key Length Using Friedman Method:
+key = Afghanistan     len = 11 friedman = [10, 9]	Bad
+key = Albania         len =  7 friedman = [4, 3]	Bad
+key = Algeria         len =  7 friedman = [6, 5]	Bad
+key = Andorra         len =  7 friedman = [5, 4]	Bad
+key = Angola          len =  6 friedman = [5, 4]	Bad
+key = Argentina       len =  9 friedman = [6, 5]	Bad
+key = Armenia         len =  7 friedman = [5, 6]	Bad
+key = Australia       len =  9 friedman = [8, 7]	Bad
+key = Austria         len =  7 friedman = [9, 10]	Bad
+key = Azerbaijan      len = 10 friedman = [7, 6]	Bad
+key = Bahamas         len =  7 friedman = [4, 5]	Bad
+key = Bahrain         len =  7 friedman = [6, 7]	Good
+key = Bangladesh      len = 10 friedman = [10, 9]	Good
+key = Barbados        len =  8 friedman = [6, 7]	Bad
+key = Belarus         len =  7 friedman = [10, 11]	Bad
+key = Belgium         len =  7 friedman = [11, 10]	Bad
+key = Belize          len =  6 friedman = [7, 6]	Good
+key = Benin           len =  5 friedman = [5, 4]	Good
+key = Bhutan          len =  6 friedman = [7, 8]	Bad
+key = Bolivia         len =  7 friedman = [6, 7]	Good
+key = Bosnia          len =  6 friedman = [8, 7]	Bad
+key = Botswana        len =  8 friedman = [7, 8]	Good
+key = Brazil          len =  6 friedman = [10, 11]	Bad
+key = Brunei          len =  6 friedman = [7, 8]	Bad
+key = Bulgaria        len =  8 friedman = [9, 10]	Bad
+key = Burkina         len =  7 friedman = [10, 11]	Bad
+key = Burundi         len =  7 friedman = [8, 9]	Bad
+key = CapeVerde       len =  9 friedman = [4, 5]	Bad
+key = Cambodia        len =  8 friedman = [8, 9]	Good
+key = Cameroon        len =  8 friedman = [6, 7]	Bad
+key = Canada          len =  6 friedman = [3, 2]	Bad
+key = CentralAfrican  len = 14 friedman = [8, 7]	Bad
+key = Chad            len =  4 friedman = [5, 6]	Bad
+key = Chile           len =  5 friedman = [7, 6]	Bad
+key = China           len =  5 friedman = [6, 7]	Bad
+key = Colombia        len =  8 friedman = [7, 6]	Bad
+key = Comoros         len =  7 friedman = [4, 5]	Bad
+key = IvoryCost       len =  9 friedman = [10, 11]	Bad
+key = Croatia         len =  7 friedman = [9, 8]	Bad
+key = Cuba            len =  4 friedman = [5, 6]	Bad
+key = Cyprus          len =  6 friedman = [7, 6]	Good
+key = Czech           len =  5 friedman = [7, 8]	Bad
+key = Congo           len =  5 friedman = [4, 3]	Bad
+key = Denmark         len =  7 friedman = [9, 8]	Bad
+key = Djibouti        len =  8 friedman = [9, 8]	Good
+key = Dominica        len =  8 friedman = [8, 7]	Good
+key = Dominican       len =  9 friedman = [7, 8]	Bad
+key = Ecuador         len =  7 friedman = [9, 8]	Bad
+key = Egypt           len =  5 friedman = [5, 4]	Good
+key = ElSalvador      len = 10 friedman = [8, 9]	Bad
+key = Eritrea         len =  7 friedman = [3, 4]	Bad
+key = Estonia         len =  7 friedman = [7, 8]	Good
+key = Eswatini        len =  8 friedman = [7, 6]	Bad
+key = Ethiopia        len =  8 friedman = [6, 5]	Bad
+key = Fiji            len =  4 friedman = [3, 2]	Bad
+key = Finland         len =  7 friedman = [12, 11]	Bad
+key = France          len =  6 friedman = [5, 6]	Good
+key = Gabon           len =  5 friedman = [5, 6]	Good
+key = Gambia          len =  6 friedman = [6, 5]	Good
+key = Georgia         len =  7 friedman = [6, 5]	Bad
+key = Germany         len =  7 friedman = [7, 8]	Good
+key = Ghana           len =  5 friedman = [3, 4]	Bad
+key = Greece          len =  6 friedman = [3, 2]	Bad
+key = Grenada         len =  7 friedman = [5, 6]	Bad
+key = Guatemala       len =  9 friedman = [5, 6]	Bad
+key = Guinea          len =  6 friedman = [7, 6]	Good
+key = GuineaBissau    len = 12 friedman = [12, 13]	Good
+key = Guyana          len =  6 friedman = [4, 5]	Bad
+key = Haiti           len =  5 friedman = [3, 4]	Bad
+key = Honduras        len =  8 friedman = [8, 7]	Good
+key = Hungary         len =  7 friedman = [8, 7]	Good
+key = Iceland         len =  7 friedman = [9, 8]	Bad
+key = India           len =  5 friedman = [6, 7]	Bad
+key = Indonesia       len =  9 friedman = [8, 7]	Bad
+key = Iran            len =  4 friedman = [5, 4]	Good
+key = Iraq            len =  4 friedman = [6, 5]	Bad
+key = Tajikistan      len = 10 friedman = [9, 8]	Bad
+key = Thailand        len =  8 friedman = [7, 6]	Bad
+key = TimorLeste      len = 10 friedman = [7, 6]	Bad
+key = Togo            len =  4 friedman = [3, 4]	Good
+key = Tonga           len =  5 friedman = [5, 6]	Good
+key = Trinidad        len =  8 friedman = [8, 7]	Good
+key = Tunisia         len =  7 friedman = [8, 7]	Good
+key = Turkey          len =  6 friedman = [7, 6]	Good
+key = Turkmenistan    len = 12 friedman = [13, 14]	Bad
+key = Tuvalu          len =  6 friedman = [6, 5]	Good
+key = Uganda          len =  6 friedman = [5, 6]	Good
+key = Ukraine         len =  7 friedman = [9, 8]	Bad
+key = UAE             len =  3 friedman = [3, 2]	Good
+key = UK              len =  2 friedman = [2, 1]	Good
+key = Tanzania        len =  8 friedman = [4, 3]	Bad
+key = USA             len =  3 friedman = [4, 5]	Bad
+key = Uruguay         len =  7 friedman = [5, 4]	Bad
+key = Uzbekistan      len = 10 friedman = [21, 20]	Bad
+key = Vanuatu         len =  7 friedman = [5, 6]	Bad
+key = Venezuela       len =  9 friedman = [7, 6]	Bad
+key = Vietnam         len =  7 friedman = [7, 8]	Good
+key = Yemen           len =  5 friedman = [4, 5]	Good
+key = Zambia          len =  6 friedman = [5, 4]	Bad
+key = Zimbabwe        len =  8 friedman = [7, 8]	Good
+Found 33 out of 100 keys
+
+------------- Key Length Using Cipher Shifting Method:
+key = Afghanistan     len = 11 shifting = [11, 2]	Bad
+key = Albania         len =  7 shifting = [1, 7]	Good
+key = Algeria         len =  7 shifting = [1, 7]	Good
+key = Andorra         len =  7 shifting = [1, 7]	Good
+key = Angola          len =  6 shifting = [4, 18]	Bad
+key = Argentina       len =  9 shifting = [9, 18]	Bad
+key = Armenia         len =  7 shifting = [1, 7]	Good
+key = Australia       len =  9 shifting = [9, 18]	Bad
+key = Austria         len =  7 shifting = [1, 7]	Good
+key = Azerbaijan      len = 10 shifting = [20, 10]	Bad
+key = Bahamas         len =  7 shifting = [1, 7]	Good
+key = Bahrain         len =  7 shifting = [1, 7]	Good
+key = Bangladesh      len = 10 shifting = [20, 10]	Bad
+key = Barbados        len =  8 shifting = [4, 16]	Good
+key = Belarus         len =  7 shifting = [1, 7]	Good
+key = Belgium         len =  7 shifting = [1, 7]	Good
+key = Belize          len =  6 shifting = [4, 18]	Bad
+key = Benin           len =  5 shifting = [15, 5]	Bad
+key = Bhutan          len =  6 shifting = [4, 18]	Bad
+key = Bolivia         len =  7 shifting = [1, 7]	Good
+key = Bosnia          len =  6 shifting = [4, 18]	Bad
+key = Botswana        len =  8 shifting = [4, 16]	Good
+key = Brazil          len =  6 shifting = [4, 18]	Bad
+key = Brunei          len =  6 shifting = [4, 18]	Bad
+key = Bulgaria        len =  8 shifting = [4, 16]	Good
+key = Burkina         len =  7 shifting = [1, 7]	Good
+key = Burundi         len =  7 shifting = [1, 7]	Good
+key = CapeVerde       len =  9 shifting = [9, 18]	Bad
+key = Cambodia        len =  8 shifting = [4, 16]	Good
+key = Cameroon        len =  8 shifting = [4, 16]	Good
+key = Canada          len =  6 shifting = [4, 18]	Bad
+key = CentralAfrican  len = 14 shifting = [14, 1]	Bad
+key = Chad            len =  4 shifting = [4, 16]	Bad
+key = Chile           len =  5 shifting = [15, 5]	Bad
+key = China           len =  5 shifting = [15, 5]	Bad
+key = Colombia        len =  8 shifting = [4, 16]	Good
+key = Comoros         len =  7 shifting = [1, 7]	Good
+key = IvoryCost       len =  9 shifting = [9, 18]	Bad
+key = Croatia         len =  7 shifting = [1, 7]	Good
+key = Cuba            len =  4 shifting = [4, 16]	Bad
+key = Cyprus          len =  6 shifting = [4, 18]	Bad
+key = Czech           len =  5 shifting = [15, 5]	Bad
+key = Congo           len =  5 shifting = [15, 5]	Bad
+key = Denmark         len =  7 shifting = [1, 7]	Good
+key = Djibouti        len =  8 shifting = [4, 16]	Good
+key = Dominica        len =  8 shifting = [4, 16]	Good
+key = Dominican       len =  9 shifting = [9, 18]	Bad
+key = Ecuador         len =  7 shifting = [1, 7]	Good
+key = Egypt           len =  5 shifting = [15, 5]	Bad
+key = ElSalvador      len = 10 shifting = [20, 10]	Bad
+key = Eritrea         len =  7 shifting = [1, 7]	Good
+key = Estonia         len =  7 shifting = [1, 7]	Good
+key = Eswatini        len =  8 shifting = [4, 16]	Good
+key = Ethiopia        len =  8 shifting = [4, 16]	Good
+key = Fiji            len =  4 shifting = [4, 16]	Bad
+key = Finland         len =  7 shifting = [1, 7]	Good
+key = France          len =  6 shifting = [4, 18]	Bad
+key = Gabon           len =  5 shifting = [15, 5]	Bad
+key = Gambia          len =  6 shifting = [4, 18]	Bad
+key = Georgia         len =  7 shifting = [1, 7]	Good
+key = Germany         len =  7 shifting = [1, 7]	Good
+key = Ghana           len =  5 shifting = [15, 5]	Bad
+key = Greece          len =  6 shifting = [4, 18]	Bad
+key = Grenada         len =  7 shifting = [1, 7]	Good
+key = Guatemala       len =  9 shifting = [9, 18]	Bad
+key = Guinea          len =  6 shifting = [4, 18]	Bad
+key = GuineaBissau    len = 12 shifting = [4, 12]	Bad
+key = Guyana          len =  6 shifting = [4, 18]	Bad
+key = Haiti           len =  5 shifting = [15, 5]	Bad
+key = Honduras        len =  8 shifting = [4, 16]	Good
+key = Hungary         len =  7 shifting = [1, 7]	Good
+key = Iceland         len =  7 shifting = [1, 7]	Good
+key = India           len =  5 shifting = [15, 5]	Bad
+key = Indonesia       len =  9 shifting = [9, 18]	Bad
+key = Iran            len =  4 shifting = [4, 16]	Bad
+key = Iraq            len =  4 shifting = [4, 16]	Bad
+key = Tajikistan      len = 10 shifting = [20, 10]	Bad
+key = Thailand        len =  8 shifting = [4, 16]	Good
+key = TimorLeste      len = 10 shifting = [20, 10]	Bad
+key = Togo            len =  4 shifting = [4, 16]	Bad
+key = Tonga           len =  5 shifting = [15, 5]	Bad
+key = Trinidad        len =  8 shifting = [4, 16]	Good
+key = Tunisia         len =  7 shifting = [1, 7]	Good
+key = Turkey          len =  6 shifting = [4, 18]	Bad
+key = Turkmenistan    len = 12 shifting = [4, 12]	Bad
+key = Tuvalu          len =  6 shifting = [4, 18]	Bad
+key = Uganda          len =  6 shifting = [4, 18]	Bad
+key = Ukraine         len =  7 shifting = [1, 7]	Good
+key = UAE             len =  3 shifting = [9, 4]	Bad
+key = UK              len =  2 shifting = [4, 16]	Bad
+key = Tanzania        len =  8 shifting = [4, 16]	Good
+key = USA             len =  3 shifting = [9, 4]	Bad
+key = Uruguay         len =  7 shifting = [1, 7]	Good
+key = Uzbekistan      len = 10 shifting = [20, 10]	Bad
+key = Vanuatu         len =  7 shifting = [1, 7]	Good
+key = Venezuela       len =  9 shifting = [9, 18]	Bad
+key = Vietnam         len =  7 shifting = [1, 7]	Good
+key = Yemen           len =  5 shifting = [15, 5]	Bad
+key = Zambia          len =  6 shifting = [4, 18]	Bad
+key = Zimbabwe        len =  8 shifting = [4, 16]	Good
+Found 44 out of 100 keys
+
+------------- Key Length Using Both Methods:
+key = Afghanistan     len = 11 keys = [10, 9, 11, 2] 	Good
+key = Albania         len =  7 keys = [4, 3, 1, 7] 	Good
+key = Algeria         len =  7 keys = [6, 5, 1, 7] 	Good
+key = Andorra         len =  7 keys = [5, 4, 1, 7] 	Good
+key = Angola          len =  6 keys = [4, 5, 18] 	Bad
+key = Argentina       len =  9 keys = [6, 5, 9, 18] 	Good
+key = Armenia         len =  7 keys = [5, 6, 1, 7] 	Good
+key = Australia       len =  9 keys = [8, 7, 9, 18] 	Good
+key = Austria         len =  7 keys = [9, 10, 1, 7] 	Good
+key = Azerbaijan      len = 10 keys = [7, 6, 20, 10] 	Good
+key = Bahamas         len =  7 keys = [4, 5, 1, 7] 	Good
+key = Bahrain         len =  7 keys = [7, 6, 1] 	Good
+key = Bangladesh      len = 10 keys = [10, 9, 20] 	Good
+key = Barbados        len =  8 keys = [6, 7, 4, 16] 	Bad
+key = Belarus         len =  7 keys = [10, 11, 1, 7] 	Good
+key = Belgium         len =  7 keys = [11, 10, 1, 7] 	Good
+key = Belize          len =  6 keys = [7, 6, 4, 18] 	Good
+key = Benin           len =  5 keys = [5, 4, 15] 	Good
+key = Bhutan          len =  6 keys = [7, 8, 4, 18] 	Bad
+key = Bolivia         len =  7 keys = [7, 6, 1] 	Good
+key = Bosnia          len =  6 keys = [8, 7, 4, 18] 	Bad
+key = Botswana        len =  8 keys = [7, 8, 4, 16] 	Good
+key = Brazil          len =  6 keys = [10, 11, 4, 18] 	Bad
+key = Brunei          len =  6 keys = [7, 8, 4, 18] 	Bad
+key = Bulgaria        len =  8 keys = [9, 10, 4, 16] 	Bad
+key = Burkina         len =  7 keys = [10, 11, 1, 7] 	Good
+key = Burundi         len =  7 keys = [8, 9, 1, 7] 	Good
+key = CapeVerde       len =  9 keys = [4, 5, 9, 18] 	Good
+key = Cambodia        len =  8 keys = [8, 9, 4, 16] 	Good
+key = Cameroon        len =  8 keys = [6, 7, 4, 16] 	Bad
+key = Canada          len =  6 keys = [3, 2, 4, 18] 	Bad
+key = CentralAfrican  len = 14 keys = [8, 7, 14, 1] 	Good
+key = Chad            len =  4 keys = [5, 6, 4, 16] 	Good
+key = Chile           len =  5 keys = [7, 6, 15, 5] 	Good
+key = China           len =  5 keys = [6, 7, 15, 5] 	Good
+key = Colombia        len =  8 keys = [7, 6, 4, 16] 	Bad
+key = Comoros         len =  7 keys = [4, 5, 1, 7] 	Good
+key = IvoryCost       len =  9 keys = [10, 11, 9, 18] 	Good
+key = Croatia         len =  7 keys = [9, 8, 1, 7] 	Good
+key = Cuba            len =  4 keys = [5, 6, 4, 16] 	Good
+key = Cyprus          len =  6 keys = [7, 6, 4, 18] 	Good
+key = Czech           len =  5 keys = [7, 8, 15, 5] 	Good
+key = Congo           len =  5 keys = [4, 3, 15, 5] 	Good
+key = Denmark         len =  7 keys = [9, 8, 1, 7] 	Good
+key = Djibouti        len =  8 keys = [9, 8, 4, 16] 	Good
+key = Dominica        len =  8 keys = [8, 7, 4, 16] 	Good
+key = Dominican       len =  9 keys = [7, 8, 9, 18] 	Good
+key = Ecuador         len =  7 keys = [9, 8, 1, 7] 	Good
+key = Egypt           len =  5 keys = [5, 4, 15] 	Good
+key = ElSalvador      len = 10 keys = [8, 9, 20, 10] 	Good
+key = Eritrea         len =  7 keys = [3, 4, 1, 7] 	Good
+key = Estonia         len =  7 keys = [7, 8, 1] 	Good
+key = Eswatini        len =  8 keys = [7, 6, 4, 16] 	Bad
+key = Ethiopia        len =  8 keys = [6, 5, 4, 16] 	Bad
+key = Fiji            len =  4 keys = [3, 2, 4, 16] 	Good
+key = Finland         len =  7 keys = [12, 11, 1, 7] 	Good
+key = France          len =  6 keys = [5, 6, 4, 18] 	Good
+key = Gabon           len =  5 keys = [5, 6, 15] 	Good
+key = Gambia          len =  6 keys = [6, 5, 4, 18] 	Good
+key = Georgia         len =  7 keys = [6, 5, 1, 7] 	Good
+key = Germany         len =  7 keys = [7, 8, 1] 	Good
+key = Ghana           len =  5 keys = [3, 4, 15, 5] 	Good
+key = Greece          len =  6 keys = [3, 2, 4, 18] 	Bad
+key = Grenada         len =  7 keys = [5, 6, 1, 7] 	Good
+key = Guatemala       len =  9 keys = [5, 6, 9, 18] 	Good
+key = Guinea          len =  6 keys = [7, 6, 4, 18] 	Good
+key = GuineaBissau    len = 12 keys = [12, 13, 4] 	Good
+key = Guyana          len =  6 keys = [4, 5, 18] 	Bad
+key = Haiti           len =  5 keys = [3, 4, 15, 5] 	Good
+key = Honduras        len =  8 keys = [8, 7, 4, 16] 	Good
+key = Hungary         len =  7 keys = [7, 8, 1] 	Good
+key = Iceland         len =  7 keys = [9, 8, 1, 7] 	Good
+key = India           len =  5 keys = [6, 7, 15, 5] 	Good
+key = Indonesia       len =  9 keys = [8, 7, 9, 18] 	Good
+key = Iran            len =  4 keys = [4, 5, 16] 	Good
+key = Iraq            len =  4 keys = [6, 5, 4, 16] 	Good
+key = Tajikistan      len = 10 keys = [9, 8, 20, 10] 	Good
+key = Thailand        len =  8 keys = [7, 6, 4, 16] 	Bad
+key = TimorLeste      len = 10 keys = [7, 6, 20, 10] 	Good
+key = Togo            len =  4 keys = [4, 3, 16] 	Good
+key = Tonga           len =  5 keys = [5, 6, 15] 	Good
+key = Trinidad        len =  8 keys = [8, 7, 4, 16] 	Good
+key = Tunisia         len =  7 keys = [7, 8, 1] 	Good
+key = Turkey          len =  6 keys = [7, 6, 4, 18] 	Good
+key = Turkmenistan    len = 12 keys = [13, 14, 4, 12] 	Good
+key = Tuvalu          len =  6 keys = [6, 5, 4, 18] 	Good
+key = Uganda          len =  6 keys = [5, 6, 4, 18] 	Good
+key = Ukraine         len =  7 keys = [9, 8, 1, 7] 	Good
+key = UAE             len =  3 keys = [3, 2, 9, 4] 	Good
+key = UK              len =  2 keys = [2, 1, 4, 16] 	Good
+key = Tanzania        len =  8 keys = [4, 3, 16] 	Bad
+key = USA             len =  3 keys = [4, 5, 9] 	Bad
+key = Uruguay         len =  7 keys = [5, 4, 1, 7] 	Good
+key = Uzbekistan      len = 10 keys = [20, 21, 10] 	Good
+key = Vanuatu         len =  7 keys = [5, 6, 1, 7] 	Good
+key = Venezuela       len =  9 keys = [7, 6, 9, 18] 	Good
+key = Vietnam         len =  7 keys = [7, 8, 1] 	Good
+key = Yemen           len =  5 keys = [5, 4, 15] 	Good
+key = Zambia          len =  6 keys = [4, 5, 18] 	Bad
+key = Zimbabwe        len =  8 keys = [7, 8, 4, 16] 	Good
+Found 82 out of 100 keys
+
+End of Vigenere key length Cryptanalysis Testing
+----------------------------------------
+
+----------------------------------------
+Start of vigenere Cryptanalysis Testing
+
+original key = Afghanistan    , found key = afghanistan    
+original key = Albania        , found key = albania        
+original key = Algeria        , found key = algeria        
+original key = Andorra        , found key = andorra        
+original key = Angola         , found key = angolaangolaangola
+original key = Argentina      , found key = argentina      
+original key = Armenia        , found key = armenia        
+original key = Australia      , found key = australia      
+original key = Austria        , found key = austria        
+original key = Azerbaijan     , found key = azerbaijanazerbaijan
+
+End of vigenere Cryptanalysis Cipher Testing
+----------------------------------------
+
