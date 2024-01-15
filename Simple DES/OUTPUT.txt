@@ -1,0 +1,139 @@
+----------------------------------------
+Start of SBOX class testing
+
+Creating an empty SBOX:
+SBOX(0):
+[]
+[]
+sbox.substitute(1000) = 
+sbox.is_empty() = True
+sbox.get_size() = 0
+sbox.get_box() = [[], []]
+
+Loading sbox1.txt:
+sbox.set_box('sbox1.txt'):
+True
+SBOX(4):
+['101', '010', '001', '110', '011', '100', '111', '000']
+['001', '100', '110', '010', '000', '111', '101', '011']
+sbox.is_empty() = False
+sbox.get_size() = 4
+sbox.get_box() = [['101', '010', '001', '110', '011', '100', '111', '000'], ['001', '100', '110', '010', '000', '111', '101', '011']]
+sbox.substitute(1101) = 111
+sbox.substitute(0010) = 001
+sbox.substitute(0111) = 000
+sbox.substitute(0000) = 101
+sbox.substitute(010) = 
+sbox.substitute(1010) = 
+
+sbox.set_box('sbox2.txt'):
+True
+SBOX(4):
+['100', '000', '110', '101', '111', '001', '011', '010']
+['101', '011', '000', '111', '110', '010', '001', '100']
+sbox.substitute(1101) = 010
+sbox.substitute(0010) = 110
+sbox.substitute(0111) = 010
+sbox.substitute(0000) = 100
+sbox.substitute(010) = 
+sbox.substitute(1010) = 
+
+Testing valid_box:
+[['1', '0'], ['0', '1']] --> True
+[[1, 0], [0, 1]] --> False
+[['1', '0'], ['0', '1'], ['0', '1']] --> False
+[['10', '11', '00', '01'], ['01', '10', '11', '00']] --> True
+[['10', '11', '00', '01'], ['01', '10', '11']] --> False
+[['10', '11', '000', '01'], ['01', '10', '11', '00']] --> False
+
+End of SBOX class Testing
+----------------------------------------
+
+----------------------------------------
+Start of Feistel Network testing
+
+Testing expand:
+sdes.expand(011001) = 01010101
+sdes.expand(00001111) = 0001010111
+sdes.expand(0011) = 010101
+sdes.expand() = 
+sdes.expand(1011) = 
+
+Testing F function:
+F(111000,00011010) = 000001
+F(100110,01100101) = 000100
+F(10011,01100101) = 
+F(100110,0110010) = 
+
+Testing feistel:
+feistel(011100100110,01100101) = 100110011000
+feistel(010001100101,11000001) = 100101101100
+feistel(01110010011,01100101) = 
+feistel(011100100110,0110010) = 
+
+End of Feistel Network Testing
+----------------------------------------
+
+----------------------------------------
+Start of SDES ECB Mode testing
+
+key = 111001101
+plaintext  = an
+ciphertext = l0
+plaintext2 = an
+
+key = 000100011
+plaintext  = Sit
+ciphertext = eKtW
+plaintext2 = Sit
+
+key = 111111011
+plaintext  = beet
+ciphertext = ibNU
+plaintext2 = beet
+
+End of SDES ECB Mode Testing
+----------------------------------------
+
+----------------------------------------
+Start of SDES CBC Mode testing
+
+key = 111001101
+plaintext  = go
+ciphertext = 6A
+plaintext2 = go
+
+key = 110011101
+plaintext  = CAT
+ciphertext = y3vs
+plaintext2 = CAT
+
+key = 111111011
+plaintext  = seed
+ciphertext = h6vT
+plaintext2 = seed
+
+End of SDES CBC Mode Testing
+----------------------------------------
+
+----------------------------------------
+Start of SDES OFB Mode testing
+
+key = 111001101
+plaintext  = or
+ciphertext = bC
+plaintext2 = or
+
+key = 110011101
+plaintext  = HAT
+ciphertext = xW4
+plaintext2 = HAT
+
+key = 010101100
+plaintext  = feed
+ciphertext = 8PdZ
+plaintext2 = feed
+
+End of SDES OFB Mode Testing
+----------------------------------------
+
